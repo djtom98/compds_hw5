@@ -20,6 +20,14 @@
 # it returns None.
 # If there is any other reason why it fails show the problem 
 # 
+def safe_subtract(a,b):
+    try:
+        return a-b
+    except TypeError as e1:
+        return None
+    except Exception as e:
+        print(e)
+print(safe_subtract(10,1))
 
 # 3)
 # Imagine you have a dictionary with the attributes of a person
@@ -46,22 +54,36 @@
 total_double_sum = 0
 for elem in [10, 5, 2]:
     double = elem * 2
-    total_double_sum += elem
+    total_double_sum += double
+print(total_double_sum)
+#considering that the objective is to get the sum of the doubled elements, 
+# the iterated value that is to be cumulatively added to the sum should be the double and not the element itself
 
 ### (b)
 strings = ''
 for string in ['I', 'am', 'Groot']:
-    strings = string+"_"+string
+    if len(strings)==0:
+        strings+=string
+    else:
+        strings = strings+"_"+string
+print(strings)
+#Intended string concatenation does not happen as string is added to itself.
+# The string should be added to the original 'strings' variable
+#also added an if else condition to recognize start of string
 
 ### (c) Careful!
 j=10
-while j > 0:
+while j < 10:
    j += 1
+print(j)
+#infinite loop due to incorrect constraint in the while loop, corrected to have an end/base condition
 
 ### (d)
-productory = 0
+productory = 1
 for elem in [1, 5, 25]:
-    productory *= elem
+    productory =productory* elem
+print(productory)
+#product should be taken initialized to 1, or end result will be 0
 
 
 ################################################
@@ -86,9 +108,19 @@ for elem in [1, 5, 25]:
 # Create a function called "compute_distance" that takes
 # a list of tuple pairs with latitude and longitude coordinates and 
 # returns a list with the distance between the two pairs
-# example input: [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]
+input= [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]
 # HINT: You can use geopy.distance in order to compute the distance
 #
+from geopy import distance
+
+def compute_distance(latlong_list:list)->list:
+    dist=[]
+    for i in latlong_list:
+        calc=distance.distance(i[0],i[1]).km
+        dist.append(calc)
+    return dist
+
+print(compute_distance(input))
 
 #################################################
 # 9)
