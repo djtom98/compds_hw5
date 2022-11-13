@@ -27,7 +27,6 @@ def safe_subtract(a,b):
         return None
     except Exception as e:
         print(e)
-print(safe_subtract(10,1))
 
 # 3)
 # Imagine you have a dictionary with the attributes of a person
@@ -108,7 +107,6 @@ print(productory)
 # Create a function called "compute_distance" that takes
 # a list of tuple pairs with latitude and longitude coordinates and 
 # returns a list with the distance between the two pairs
-input= [((41.23,23.5), (41.5, 23.4)), ((52.38, 20.1),(52.3, 17.8))]
 # HINT: You can use geopy.distance in order to compute the distance
 #
 from geopy import distance
@@ -120,7 +118,6 @@ def compute_distance(latlong_list:list)->list:
         dist.append(calc)
     return dist
 
-print(compute_distance(input))
 
 #################################################
 # 9)
