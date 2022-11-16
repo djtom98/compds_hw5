@@ -37,6 +37,26 @@ def safe_subtract(a,b):
 # Name the first function "retrieve_age_eafp" and follow EAFP
 # Name the second function "retrieve_age_lbyl" and follow lbyl
 
+from datetime import date
+
+# EAFP
+
+def retrieve_age_eafp(person):
+    
+    try:
+        return date.today().year - person['birth']
+    except KeyError:
+        print("Some keys are missing")
+
+# LBYL
+
+def retrieve_age_lbyl(person):
+    
+    if 'birth' in person:
+        return date.today().year - person['birth']
+    else:
+        print("Some keys are missing")
+        
 # 4)
 # Imagine you have a file named data.csv. 
 # Create a function called "read_data" that reads the file
@@ -95,6 +115,9 @@ print(productory)
 #  "Hakuna matata", "Timon, Pumba and Simba are friends, but Simba could eat the other two."] 
 #
 
+def count_simba(list_string):
+    return sum(map(lambda x: x.count('Simba'), list_string))
+
 # 7)
 # Create a function called "get_day_month_year" that takes 
 # a list of datetimes.date and returns a pandas dataframe
@@ -131,4 +154,16 @@ def compute_distance(latlong_list:list)->list:
 # the result should be 13
 #
 
+from collections.abc import Iterable
 
+ 
+def sum_general_int_list(int_list):
+    total = 0
+    
+    for i in int_list:
+        if isinstance(i, Iterable) and not isinstance(i, (str, bytes)):
+            total += sum_general_int_list(i)
+        else:
+            total += i
+    
+    return total
