@@ -1,0 +1,5 @@
+setup.py
+learnlibs.egg-info/PKG-INFO
+learnlibs.egg-info/SOURCES.txt
+learnlibs.egg-info/dependency_links.txt
+learnlibs.egg-info/top_level.txt
