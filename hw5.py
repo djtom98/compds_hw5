@@ -12,6 +12,22 @@
 # where <light> is the value of the parameter light.
 #
 
+def car_at_light(light):
+    try:
+        if light=="red":
+            print("red")
+            return ("stop")
+        elif light=="green":
+            print("green")
+            return ("go")
+        elif light=="yellow":
+            print("yellow")
+            return ("wait")
+        else:
+            raise Exception('"Undefined instruction for color: <light>" where <light> is the value of the parameter light.')
+    except Exception as exception:
+        print(exception)
+        return
 # 2)
 # Create a function named "safe_subtract" that
 # takes two parameters and returns the result of
@@ -63,7 +79,26 @@ def retrieve_age_lbyl(person):
 # making sure to use to handle the fact 
 # that it might not exist. 
 #
+import csv
+import pandas as pd
+import os 
 
+def read_data(filename):
+    filepath = ""
+
+    # finding the file location and reading
+    for root, dirs, files in os.walk(r'C:'):
+        for name in files:
+            if name == filename:
+                filepath = (os.path.abspath(os.path.join(root, name)))
+                print("File found at File path:",filepath)
+    try:
+        f = open(str(filepath), "r")
+        print(f.read())
+        # to read the csv as a dataframe we can do the below:
+        # dataframe = pd.read_csv(filepath)
+    except FileNotFoundError:
+        print('File Not Found')
 
 # 5) Squash some bugs! 
 # Find the possible logical errors (bugs) 
@@ -125,7 +160,29 @@ def count_simba(list_string):
 # is an element of the input list and has as value its 
 # day, month, and year.
 # 
+import pandas as pd
+import datetime
 
+def get_day_month_year(dates: list):
+    # create df for mapping
+    dates_df = pd.DataFrame(dates, columns=['date'])
+
+    # create maps for dates
+    mapped_dates = dates_df.date.apply(lambda x: (x.year, x.month, x.day))
+    
+    # initalize empty lists to populate
+    year, month, day = [], [], []
+
+    # loop through elements of mapped_dates and store d/m/y
+    for i in mapped_dates:
+        year.append(i[0])  # datetime.year
+        month.append(i[1])  # datetime.month
+        day.append(i[2]) # datetime.day
+        
+    # zip and append to pd.Dataframe
+    df = pd.DataFrame(zip(day, month, year), columns = ['day', 'month', 'year'])
+    
+    return df
 # 8) 
 # Create a function called "compute_distance" that takes
 # a list of tuple pairs with latitude and longitude coordinates and 
