@@ -1,0 +1,11 @@
+setup.py
+learn_libs/learn_libs/__init__.py
+learn_libs/learn_libs/clean_data.py
+learn_libs/learn_libs/generate_dummies.py
+learn_libs/learn_libs/read_data.py
+learn_libs/learn_libs/split_data.py
+learn_libs/learn_libs/train_and_score.py
+learn_libs/learnlibs.egg-info/PKG-INFO
+learn_libs/learnlibs.egg-info/SOURCES.txt
+learn_libs/learnlibs.egg-info/dependency_links.txt
+learn_libs/learnlibs.egg-info/top_level.txt
