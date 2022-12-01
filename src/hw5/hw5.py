@@ -77,22 +77,11 @@ import csv
 import pandas as pd
 import os 
 
-def read_data(filename):
-    filepath = ""
-
-    # finding the file location and reading
-    for root, dirs, files in os.walk(r'C:'):
-        for name in files:
-            if name == filename:
-                filepath = (os.path.abspath(os.path.join(root, name)))
-                print("File found at File path:",filepath)
+def read_data(file):
     try:
-        f = open(str(filepath), "r")
-        print(f.read())
-        # to read the csv as a dataframe we can do the below:
-        # dataframe = pd.read_csv(filepath)
+        return pd.read_csv(file)
     except FileNotFoundError:
-        print('File Not Found')
+        raise 
 
 # 5) Squash some bugs! 
 # Find the possible logical errors (bugs) 
