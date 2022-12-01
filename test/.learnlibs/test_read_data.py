@@ -1,7 +1,11 @@
 import pandas as pd
 from pandas.testing import assert_frame_equal
 import unittest
-from learn_libs import read_data
+from learnlibs.clean_data import *
+from learnlibs.read_data import *
+from learnlibs.generate_dummies import *
+from learnlibs.split_data import *
+from learnlibs.train_and_score import *
 
 # def read_data(path: str):
 #     '''
