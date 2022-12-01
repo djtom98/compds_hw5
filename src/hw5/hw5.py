@@ -52,20 +52,18 @@ from datetime import date
 # EAFP
 
 def retrieve_age_eafp(person):
-    
     try:
         return date.today().year - person['birth']
     except KeyError:
-        print("Some keys are missing")
+        raise
 
 # LBYL
 
 def retrieve_age_lbyl(person):
-    
     if 'birth' in person:
         return date.today().year - person['birth']
     else:
-        print("Some keys are missing")
+        raise KeyError('Some keys are missing')
         
 # 4)
 # Imagine you have a file named data.csv. 
@@ -73,15 +71,13 @@ def retrieve_age_lbyl(person):
 # making sure to use to handle the fact 
 # that it might not exist. 
 #
-import csv
 import pandas as pd
-import os 
 
 def read_data(file):
     try:
         return pd.read_csv(file)
     except FileNotFoundError:
-        raise 
+        raise
 
 # 5) Squash some bugs! 
 # Find the possible logical errors (bugs) 
@@ -92,8 +88,8 @@ total_double_sum = 0
 for elem in [10, 5, 2]:
     double = elem * 2
     total_double_sum += double
-print(total_double_sum)
-#considering that the objective is to get the sum of the doubled elements, 
+# print(total_double_sum)
+# considering that the objective is to get the sum of the doubled elements, 
 # the iterated value that is to be cumulatively added to the sum should be the double and not the element itself
 
 ### (b)
@@ -103,7 +99,7 @@ for string in ['I', 'am', 'Groot']:
         strings+=string
     else:
         strings = strings+"_"+string
-print(strings)
+# print(strings)
 #Intended string concatenation does not happen as string is added to itself.
 # The string should be added to the original 'strings' variable
 #also added an if else condition to recognize start of string
@@ -112,14 +108,14 @@ print(strings)
 j=10
 while j < 10:
    j += 1
-print(j)
+# print(j)
 #infinite loop due to incorrect constraint in the while loop, corrected to have an end/base condition
 
 ### (d)
 productory = 1
 for elem in [1, 5, 25]:
     productory =productory* elem
-print(productory)
+# print(productory)
 #product should be taken initialized to 1, or end result will be 0
 
 
@@ -197,7 +193,6 @@ def compute_distance(coord_list: list)->list:
 
 from collections.abc import Iterable
 
- 
 def sum_general_int_list(int_list):
     total = 0
     
