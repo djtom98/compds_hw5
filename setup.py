@@ -19,12 +19,12 @@ def get_requirements(requirements_path='requirements.txt'):
 # or you can create a variable called __version__ inside the __init__.py from
 # the src/your_library folder that has a string with the version as a string.
 setup(
-    name='learn_libs',
+    name='learnlibs',
     version='1.0',
     description='Learn how to use libraries!',
     author='',
-    packages=find_packages(where='learn_libs', exclude=['tests']),
-    package_dir={'': 'learn_libs'},
+    packages=find_packages(where='src', exclude=['test']),
+    package_dir={'': 'src'},
     install_requires=get_requirements(),
     setup_requires=['pytest-runner', 'wheel'],
     url='',
