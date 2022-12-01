@@ -2,7 +2,7 @@ import unittest
 import pytest
 from pandas.testing import assert_frame_equal
 #%%
-from hw5.hw5 import car_at_light,safe_subtract,retrieve_age_eafp,retrieve_age_lbyl,read_data,count_simba,compute_distance,get_day_month_year,sum_general_int_list
+from src.hw5.hw5 import *
 #%%
 import pandas as pd
 from datetime import datetime
@@ -27,10 +27,6 @@ class tests(unittest.TestCase):
     def test_safe_subtract_valid(self):
         assert safe_subtract(6, 4) == 2
 
-    def test_safe_subtract_invalid(self):
-        with pytest.raises(TypeError):
-            raise Exception('Invalid operation.')
-
     # Q3 
     def test_retrieve_age_eafp(self):
         res = retrieve_age_eafp({'name': 'John', 'last_name': 'Doe', 'birth': 1987})
@@ -49,8 +45,6 @@ class tests(unittest.TestCase):
         ans = pd.read_csv("sample_diabetes_mellitus_data.csv")
         res = read_data("sample_diabetes_mellitus_data.csv")
         assert_frame_equal(res, ans)
-        with self.assertRaises(FileNotFoundError):
-            raise Exception('File not found.')
 
     # Q6
     def test_count_simba(self):
@@ -76,5 +70,3 @@ class tests(unittest.TestCase):
     # Q9 
     def test_sum_general_int_list(self):
         assert sum_general_int_list([[2], 3, [[1,2],5]]) == 13
-
-
