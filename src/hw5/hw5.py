@@ -189,6 +189,7 @@ def compute_distance(coord_list: list)->list:
     dist = []
     for point in coord_list:
         calc = distance(point[0], point[1]).km
+        calc = round(calc, 2)
         dist.append(calc)
     return dist
 
