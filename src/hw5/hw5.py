@@ -183,12 +183,12 @@ def get_day_month_year(dates: list):
 # returns a list with the distance between the two pairs
 # HINT: You can use geopy.distance in order to compute the distance
 #
-from geopy import distance
+from geopy.distance import distance
 
-def compute_distance(latlong_list:list)->list:
-    dist=[]
-    for i in latlong_list:
-        calc=distance.distance(i[0],i[1]).km
+def compute_distance(coord_list: list)->list:
+    dist = []
+    for point in coord_list:
+        calc = distance(point[0], point[1]).km
         dist.append(calc)
     return dist
 
