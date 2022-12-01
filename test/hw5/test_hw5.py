@@ -1,10 +1,11 @@
 import unittest
 import pytest
 from pandas.testing import assert_frame_equal
-from hw5.hw5 import *
+#%%
+from hw5.hw5 import car_at_light,safe_subtract,retrieve_age_eafp,retrieve_age_lbyl,read_data,count_simba,compute_distance,get_day_month_year,sum_general_int_list
+#%%
 import pandas as pd
 from datetime import datetime
-
 class tests(unittest.TestCase):
 
     # Q1 
@@ -75,3 +76,5 @@ class tests(unittest.TestCase):
     # Q9 
     def test_sum_general_int_list(self):
         assert sum_general_int_list([[2], 3, [[1,2],5]]) == 13
+
+

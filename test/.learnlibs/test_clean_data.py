@@ -3,7 +3,11 @@ import numpy as np
 import unittest
 from pandas.testing import assert_frame_equal
 
-from learn_libs import *
+from learnlibs.clean_data import *
+from learnlibs.read_data import *
+from learnlibs.generate_dummies import *
+from learnlibs.split_data import *
+from learnlibs.train_and_score import *
 # def drop_nan(df: pd.DataFrame, cols: list):
 #     '''
 #     Remove those rows that contain NaN values in the given columns.
@@ -33,8 +37,8 @@ class TestCleanData(unittest.TestCase):
         assert_frame_equal(output,expected_output,check_dtype=False)
 
 
-# a=TestCleanData()
-# a.test_drop_nan()
+a=TestCleanData()
+a.test_drop_nan()
 
 
 
