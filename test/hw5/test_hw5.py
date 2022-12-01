@@ -70,7 +70,7 @@ class tests(unittest.TestCase):
     def test_compute_distance(self):
         coords1 = ((41.23, 23.5), (41.5, 23.4))
         coords2 = ((52.38, 20.1), (52.3, 17.8))
-        dist = [31.13186522205169, 157.00582786889402]
+        dist = [31.13, 157.01]
         assert compute_distance([coords1, coords2]) == dist
 
     # Q9 
