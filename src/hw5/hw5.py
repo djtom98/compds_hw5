@@ -13,21 +13,15 @@
 #
 
 def car_at_light(light):
-    try:
         if light=="red":
-            print("red")
             return ("stop")
         elif light=="green":
-            print("green")
             return ("go")
         elif light=="yellow":
-            print("yellow")
             return ("wait")
         else:
-            raise Exception('"Undefined instruction for color: <light>" where <light> is the value of the parameter light.')
-    except Exception as exception:
-        print(exception)
-        return
+            raise Exception("Undefined instruction for color: " + str(light))
+
 # 2)
 # Create a function named "safe_subtract" that
 # takes two parameters and returns the result of
